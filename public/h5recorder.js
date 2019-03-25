@@ -182,6 +182,7 @@
             xhr.open("POST", url);
             xhr.send(fd);
             //xhr.send('56766758');
+            //console.log(xhr.responseText);
         }
 
 

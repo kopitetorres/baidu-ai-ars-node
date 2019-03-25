@@ -1,19 +1,6 @@
 var express = require('express');
 var app = express();
 
-app.use(express.static('public'));
-
-app.get('/', function (req, res) {
-    res.sendFile( __dirname + "/public/" + "wave.html" );
- })
-
-var multipart = require('connect-multiparty');
-
-var multipartMiddleware = multipart();
-
-var fs = require('fs');
-var path = require('path');
-
 var AipSpeechClient = require("baidu-aip-sdk").speech;
 
 // 设置APPID/AK/SK
@@ -23,6 +10,11 @@ var SECRET_KEY = "Zio57yIahYxXLMPmV7FSkG4ahfe0zbXg";
 
 // 新建一个对象，建议只保存一个对象调用服务接口
 var client = new AipSpeechClient(APP_ID, API_KEY, SECRET_KEY);
+
+var multipart = require('connect-multiparty');
+var multipartMiddleware = multipart();
+var fs = require('fs');
+var path = require('path');
 
 app.post('/process_post', multipartMiddleware, function (req, res) {
 
@@ -60,6 +52,13 @@ function streamToBuffer(stream) {
 }
 
 
+
+
+
+app.use(express.static('public'));
+app.get('/', function (req, res) {
+    res.sendFile( __dirname + "/public/" + "wave.html" );
+ })
 
 var server = app.listen(8081, function () {
 

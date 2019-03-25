@@ -8,13 +8,16 @@
 </head>
 
 <body>
-        <div>
-                <audio controls autoplay></audio>
+        <div>     
+        <audio controls autoplay></audio>
+        <br>
+        <br>
                 <input onclick="startRecording()" type="button" value="录音" />
                 <input onclick="stopRecording()" type="button" value="停止" />
                 <input onclick="playRecording()" type="button" value="播放" />
+        <br>
                 <input onclick="uploadAudio()" type="button" value="提交" />
-            </div>
+        </div>
 
         <script type="text/javascript" src="h5recorder.js"></script>
 
@@ -45,6 +48,7 @@
                         break;
                     case 'ok':
                         //alert(e.target.responseText);
+                        console.log(e)
                         alert("上传成功,在node的log中查看结果");
                         //window.location.href="VideoSearchServlet.do";
                         break;
