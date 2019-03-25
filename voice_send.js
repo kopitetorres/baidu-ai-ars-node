@@ -38,7 +38,8 @@ app.post('/process_post', multipartMiddleware, function (req, res) {
             console.log('return json: ' + JSON.stringify(result));
             console.log('在线语音识别结果: ' + result.result);
 
-            res.end(JSON.stringify(result.result));
+            res.setHeader('Content-Type', 'application/json;charset=utf-8');
+            res.end(JSON.stringify(result));
         }, function (err) {
             console.log(err);
         });
@@ -62,9 +63,8 @@ function streamToBuffer(stream) {
 
 var server = app.listen(8081, function () {
 
-    var host = server.address().address
     var port = server.address().port
 
-    console.log("应用实例，访问地址为 http://%s:%s", host, port)
+    console.log("应用实例，访问地址为 http://localhost:%s", port)
 
 })

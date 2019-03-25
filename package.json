@@ -2,12 +2,12 @@
   "name": "voice",
   "version": "1.0.0",
   "description": "",
-  "main": "voice.js",
+  "main": "voice_send.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node voice_send.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "kopitetorres",
+  "license": "MIT",
   "dependencies": {
     "baidu-aip-sdk": "^2.3.6",
     "body-parser": "^1.18.3",
